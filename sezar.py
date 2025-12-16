@@ -1,16 +1,14 @@
-metin = input("Metni girin: ")
-sayi = int(input("Kaydırma sayısı: "))
+alfabe = "abcdefghijklmnopqrstuvwxyz"
+
+metin = input("Metni gir: ")
+kaydirma = int(input("Kaydırma sayısını gir: "))
+
 sonuc = ""
 
-for harf in metin:
-    if harf.isalpha():
-        # Büyük harfse 'A'(65), küçükse 'a'(97) baz alınır
-        baslangic = 65 if harf.isupper() else 97
-        
-        # Matematiksel formül (Mod alma işlemi)
-        yeni_kod = (ord(harf) - baslangic + sayi) % 26 + baslangic
-        sonuc += chr(yeni_kod)
+for h in metin:
+    if h in alfabe:
+        sonuc += alfabe[(alfabe.index(h) + kaydirma) % 26]
     else:
-        sonuc += harf
+        sonuc += h
 
-print("Çıktı:", sonuc)
+print(sonuc)
